@@ -26,6 +26,7 @@
 *.jar
 bin/
 *.cfg
+*.csv
 
 # R
 
