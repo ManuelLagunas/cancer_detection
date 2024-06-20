@@ -2,7 +2,7 @@
 title: Cancer Detection
 authors:
   - name: Manuel Lagunas
-
+    email: lagunas.aragon@gmail.com    
 bibliography: references.bib
 ---
 
