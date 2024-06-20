@@ -3,6 +3,15 @@ project:
 
 manuscript:
   article: index.qmd
+  
+  notebooks:
+  - notebook: notebooks/eda_orders.qmd
+    title: EDA Orders
+
+  code-links:
+    - text: GitHub
+      icon: github
+      href: https://github.com/ManuelLagunas/cancer_detection.git
 
 format:
   html:
@@ -15,7 +24,4 @@ format:
   # pdf: default
 
 execute:
-  freeze: true
-
-
-
+  freeze: auto
