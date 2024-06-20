@@ -1,10 +1,30 @@
 ---
-title: Cancer Detection
+title: Modelo de machine learning para predecir la precencia de cancer basado en varios factores
+subtitle: Reproducido con quarto manuscripts
 authors:
   - name: Manuel Lagunas
-    email: lagunas.aragon@gmail.com    
+    roles:
+    - Data scientist
+    corresponding: true
 bibliography: references.bib
+abstract: |
+  **BACKGROUND**
+  Preliminary research suggests that rectally administered nonsteroidal antiinflammatory drugs may reduce the incidence of pancreatitis after endoscopic retrograde cholangiopancreatography (ERCP).
+  
+  **METHODS**
+  In this multicenter, randomized, placebo-controlled, double-blind clinical trial, we assigned patients at elevated risk for post-ERCP pancreatitis to receive a single dose of rectal indomethacin or placebo immediately after ERCP. Patients were determined to be at high risk on the basis of validated patient- and procedure-related risk factors. The primary outcome was post-ERCP pancreatitis, which was defined as new upper abdominal pain, an elevation in pancreatic enzymes to at least three times the upper limit of the normal range 24 hours after the procedure, and hospitalization for at least 2 nights.
+  
+  **RESULTS**
+  A total of 602 patients were enrolled and completed follow-up. The majority of patients (82%) had a clinical suspicion of sphincter of Oddi dysfunction. Post-ERCP pancreatitis developed in 27 of 295 patients (9.2%) in the indomethacin group and in 52 of 307 patients (16.9%) in the placebo group (P=0.005). Moderate-to-severe pancreatitis developed in 13 patients (4.4%) in the indomethacin group and in 27 patients (8.8%) in the placebo group (P=0.03).
+  
+  **CONCLUSIONS**
+  Among patients at high risk for post-ERCP pancreatitis, rectal indomethacin significantly reduced the incidence of the condition. (Funded by the National Institutes of Health; ClinicalTrials.gov number, NCT00820612. opens in new tab.)
 ---
 
+::: callout-important
+This is a Quarto reproduction of a paper published in the New England Journal of Medicine in 2012, which you can find at <https://www.nejm.org/doi/full/10.1056/NEJMoa1111103>.
+Some of the reproduction code was provided by Peter Higgins.
+:::
+
 ## Section
-This is a simple placeholder for the manuscript's main document [@knuth84].
+This is a simple placeholder for the manuscript's main document.
