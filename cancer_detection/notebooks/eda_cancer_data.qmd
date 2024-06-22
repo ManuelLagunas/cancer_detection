@@ -22,3 +22,11 @@ from functions import load_last_csv_from_directory
 # Load the last CSV file from the directory
 df = load_last_csv_from_directory('datasets')
 ```
+
+## EDA
+
+### Head
+
+```{python}
+df.head()
+```

@@ -35,3 +35,33 @@ def load_last_csv_from_directory(directory_path):
     else:
         print("No CSV files found.")
         return None
+
+# ---------- Load csvs ----------
+
+def load_csvs_as_individual_dfs(directory_path):
+    """
+    Traverse all CSV files in the specified directory and its subdirectories,
+    load each into a DataFrame, and return a list of DataFrames.
+    
+    :param directory_path: Path of the directory to search for CSV files.
+    :return: List of DataFrames, each loaded from a found CSV file.
+    """
+    import os
+    import pandas as pd
+
+    # List to store dataframes
+    dfs = []
+
+    # Traverse all CSV files in the directory and subdirectories
+    for dirname, _, filenames in os.walk(directory_path):
+        for filename in filenames:
+            if filename.endswith('.csv'):  # Ensure it is a CSV file
+                file_path = os.path.join(dirname, filename)
+                print(file_path)
+                df = pd.read_csv(file_path)
+                dfs.append(df)
+
+    if not dfs:
+        print("No CSV files found.")
+
+    return dfs
