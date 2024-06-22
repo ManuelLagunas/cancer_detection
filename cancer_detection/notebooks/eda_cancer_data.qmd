@@ -2,8 +2,23 @@
 title: "EDA Cancer Data"
 format:
     html:
-    toc: true
-    numberSections: true
-    toc-depth: 4
+        toc: true
+        numberSections: true
+        toc-depth: 4
 ---
 
+# ========== Libraries  ==========
+```{python}
+import pandas as pd
+from ydata_profiling import ProfileReport
+```
+
+# ========== Loading data ==========
+```{python}
+df = pd.read_csv('datasets/aisles_raw.csv', sep=';')
+```
+
+# ========== EDA  ==========
+```{python}
+ProfileReport(df)
+```

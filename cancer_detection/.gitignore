@@ -27,6 +27,7 @@
 bin/
 *.cfg
 *.csv
+cancer_detection/
 
 # R
 
