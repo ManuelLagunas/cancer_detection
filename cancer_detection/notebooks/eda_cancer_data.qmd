@@ -1,0 +1,24 @@
+---
+title: "Profile Cancer Data"
+format:
+    html:
+        toc: true
+        numberSections: true
+        toc-depth: 4
+---
+
+## Libraries
+```{python}
+import os
+import pandas as pd
+import seaborn as sns
+
+from functions import load_last_csv_from_directory
+```
+
+## Loading data
+```{python}
+# ========== Loading Data ==========
+# Load the last CSV file from the directory
+df = load_last_csv_from_directory('datasets')
+```
