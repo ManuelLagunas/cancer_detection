@@ -1,5 +1,5 @@
 ---
-title: "EDA Cancer Data"
+title: "Profile Cancer Data"
 format:
     html:
         toc: true
@@ -7,18 +7,18 @@ format:
         toc-depth: 4
 ---
 
-# ========== Libraries  ==========
+## Libraries
 ```{python}
 import pandas as pd
 from ydata_profiling import ProfileReport
 ```
 
-# ========== Loading data ==========
+## Loading data
 ```{python}
-df = pd.read_csv('datasets/aisles_raw.csv', sep=';')
+df = pd.read_csv('datasets/The_Cancer_data_1500_V2.csv')
 ```
 
-# ========== EDA  ==========
+## EDA
 ```{python}
 ProfileReport(df)
 ```
