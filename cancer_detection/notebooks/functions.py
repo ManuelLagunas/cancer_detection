@@ -65,3 +65,40 @@ def load_csvs_as_individual_dfs(directory_path):
         print("No CSV files found.")
 
     return dfs
+
+# ========== EDA ==========
+
+# ---------- Column features categorization ----------
+
+def classify_columns(df):
+    """
+    Classifies columns of a DataFrame into binary, categorical, and continuous.
+
+    :param df: DataFrame to classify.
+    :return: A dictionary with three keys ('binary', 'categorical', 'continuous') and column names as lists.
+    """
+    binary_columns = []
+    categorical_columns = []
+    continuous_columns = []
+
+    for column in df.columns:
+        unique_values = df[column].dropna().unique()
+        num_unique_values = len(unique_values)
+
+        if num_unique_values == 2:
+            binary_columns.append(column)
+        elif 2 < num_unique_values <= 10:  # Adjusted to include the value 10 in categorical classification
+            categorical_columns.append(column)
+        else:
+            continuous_columns.append(column)
+
+    # Optional: print the lists of classified columns
+    print('Binary columns:', binary_columns)
+    print('Categorical columns:', categorical_columns)
+    print('Continuous columns:', continuous_columns)
+
+    return {
+        'binary': binary_columns,
+        'categorical': categorical_columns,
+        'continuous': continuous_columns
+    }
