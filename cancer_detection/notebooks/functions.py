@@ -2,6 +2,7 @@
 
 import os
 import pandas as pd
+import matplotlib.pyplot as plt
 import seaborn as sns
 
 
@@ -46,8 +47,6 @@ def load_csvs_as_individual_dfs(directory_path):
     :param directory_path: Path of the directory to search for CSV files.
     :return: List of DataFrames, each loaded from a found CSV file.
     """
-    import os
-    import pandas as pd
 
     # List to store dataframes
     dfs = []
@@ -87,18 +86,41 @@ def classify_columns(df):
 
         if num_unique_values == 2:
             binary_columns.append(column)
-        elif 2 < num_unique_values <= 10:  # Adjusted to include the value 10 in categorical classification
+        elif 2 < num_unique_values < 5:  # Adjusted to include the value 4 in categorical classification
             categorical_columns.append(column)
         else:
             continuous_columns.append(column)
-
-    # Optional: print the lists of classified columns
-    print('Binary columns:', binary_columns)
-    print('Categorical columns:', categorical_columns)
-    print('Continuous columns:', continuous_columns)
 
     return {
         'binary': binary_columns,
         'categorical': categorical_columns,
         'continuous': continuous_columns
     }
+
+#  ---------- Binary data visualization ----------
+
+def plot_binary_column(df, column_name, title):
+    """
+    Creates a bar plot for a binary column with two colors.
+    
+    Parameters:
+    - df: pandas DataFrame containing the data.
+    - column_name: Name of the binary column to plot.
+    - title: Title of the plot.
+    """
+    # Check if the column exists in the DataFrame
+    if column_name not in df.columns:
+        print(f"Column '{column_name}' does not exist in the DataFrame.")
+        return
+    
+    # Count the frequency of values in the binary column
+    value_counts = df[column_name].value_counts()
+    
+    # Create the bar plot
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=value_counts.index, y=value_counts.values, palette='coolwarm')
+    plt.title(title)
+    plt.xlabel('Category')
+    plt.ylabel('Frequency')
+    plt.xticks(ticks=[0, 1], labels=['Category 1', 'Category 2'])  # Adjust labels as needed
+    plt.show()

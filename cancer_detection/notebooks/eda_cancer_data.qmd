@@ -12,8 +12,9 @@ format:
 import os
 import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
 
-from functions import load_last_csv_from_directory
+from functions import load_last_csv_from_directory, classify_columns
 ```
 
 ## Loading data
@@ -29,4 +30,27 @@ df = load_last_csv_from_directory('datasets')
 
 ```{python}
 df.head()
+```
+
+### Columns clasification
+
+```{python}
+classify_columns(df)
+```
+
+
+```{python}
+binary_columns = classify_columns(df)['binary']
+
+for column in binary_columns:
+    # Count the frequency of values in the binary column
+    value_counts = df[column].value_counts()
+    
+    # Create the bar plot
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=value_counts.index, y=value_counts.values)
+    plt.title(f'Distribution of {column}')
+    plt.xlabel('Category')
+    plt.ylabel('Frequency')
+    plt.show()
 ```
