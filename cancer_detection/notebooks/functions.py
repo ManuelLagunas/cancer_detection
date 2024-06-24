@@ -99,28 +99,36 @@ def classify_columns(df):
 
 #  ---------- Binary data visualization ----------
 
-def plot_binary_column(df, column_name, title):
+def plot_binary_column(df, column_name, title, category1_name, category2_name):
     """
-    Creates a bar plot for a binary column with two colors.
+    Creates a bar plot for a binary column with two distinct colors, allowing custom category names.
     
     Parameters:
     - df: pandas DataFrame containing the data.
     - column_name: Name of the binary column to plot.
     - title: Title of the plot.
+    - category1_name: Custom name for the first category (associated with 0).
+    - category2_name: Custom name for the second category (associated with 1).
     """
     # Check if the column exists in the DataFrame
     if column_name not in df.columns:
         print(f"Column '{column_name}' does not exist in the DataFrame.")
         return
     
+    # Prepare data for seaborn
     # Count the frequency of values in the binary column
-    value_counts = df[column_name].value_counts()
+    value_counts = df[column_name].value_counts().reset_index()
+    value_counts.columns = ['Category', 'Frequency']
     
-    # Create the bar plot
+    # Add a 'Hue' column to differentiate binary categories with custom names
+    value_counts['Hue'] = value_counts['Category'].apply(lambda x: category1_name if x == 0 else category2_name)
+    
+    # Create bar plot with hue
     plt.figure(figsize=(10, 6))
-    sns.barplot(x=value_counts.index, y=value_counts.values, palette='coolwarm')
+    sns.barplot(data=value_counts, x='Category', y='Frequency', hue='Hue', dodge=False, palette='coolwarm')
     plt.title(title)
     plt.xlabel('Category')
     plt.ylabel('Frequency')
-    plt.xticks(ticks=[0, 1], labels=['Category 1', 'Category 2'])  # Adjust labels as needed
+    plt.xticks(ticks=[0, 1], labels=[category1_name, category2_name])
+    plt.legend(title=None)  # Optional: adjust or remove the legend
     plt.show()

@@ -14,7 +14,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from functions import load_last_csv_from_directory, classify_columns
+from functions import load_last_csv_from_directory, classify_columns, plot_binary_column
 ```
 
 ## Loading data
@@ -38,19 +38,43 @@ df.head()
 classify_columns(df)
 ```
 
+### Binary data distribution visualization
+```{python}
+#| fig-cap: Distribution of diagnosis
+dataframe = df
+column = 'Diagnosis'
+title = 'Distibution of diagnosis'
+category1_name = 'No cancer'
+category2_name = 'Cancer'
+plot_binary_column(dataframe, column, title, category1_name, category2_name)
+```
 
 ```{python}
-binary_columns = classify_columns(df)['binary']
+#| fig-cap: Distribution of gender
+dataframe = df
+column = 'Gender'
+title = 'Distibution of gender'
+category1_name = 'Male'
+category2_name = 'Female'
+plot_binary_column(dataframe, column, title, category1_name, category2_name)
+```
 
-for column in binary_columns:
-    # Count the frequency of values in the binary column
-    value_counts = df[column].value_counts()
-    
-    # Create the bar plot
-    plt.figure(figsize=(10, 6))
-    sns.barplot(x=value_counts.index, y=value_counts.values)
-    plt.title(f'Distribution of {column}')
-    plt.xlabel('Category')
-    plt.ylabel('Frequency')
-    plt.show()
+```{python}
+#| fig-cap: Distribution of smoking
+dataframe = df
+column = 'Smoking'
+title = 'Distibution of smoking'
+category1_name = 'No smoking'
+category2_name = 'Smoking'
+plot_binary_column(dataframe, column, title, category1_name, category2_name)
+```
+
+```{python}
+#| fig-cap: Distribution of cancer history
+dataframe = df
+column = 'CancerHistory'
+title = 'Distibution of cancer history'
+category1_name = 'No cancer history'
+category2_name = 'Cancer history'
+plot_binary_column(dataframe, column, title, category1_name, category2_name)
 ```
