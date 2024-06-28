@@ -33,6 +33,11 @@ df = load_last_csv_from_directory('datasets')
 df.head()
 ```
 
+### Info
+```{python}
+df.describe().T
+```
+
 ### Columns clasification
 
 ```{python}
@@ -172,4 +177,13 @@ dataframe = df
 column = 'AlcoholIntake'
 title = 'Number of alcohol units consumed per week boxplot'
 plot_boxplot(df, column, title)
+```
+
+### Correlation heatmap with Diagnosis
+```{python}
+#| fig-cap: Correlation heatmap with Diagnosis
+plt.figure(figsize=(8, 10))
+sns.heatmap(df.corr()[['Diagnosis']].sort_values(by='Diagnosis', ascending=False), annot=True, cmap='Reds', vmin=-1, vmax=1)
+plt.title('Correlation with Diagnosis', fontsize=12)
+plt.show()
 ```
