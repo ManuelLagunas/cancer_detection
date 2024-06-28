@@ -15,7 +15,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from functions import load_last_csv_from_directory, classify_columns, plot_binary_column, plot_histogram_with_density
+from functions import load_last_csv_from_directory, classify_columns, plot_binary_column, plot_histogram_with_density, plot_boxplot
 ```
 
 ## Loading data
@@ -116,3 +116,60 @@ plot_histogram_with_density(df, column, bins, title)
 ```
 
 ```{python}
+#| fig-cap: Age boxplot
+dataframe = df
+column = 'Age'
+title = 'Age boxplot'
+plot_boxplot(df, column, title)
+```
+
+```{python}
+#| fig-cap: Histogram of BMI
+dataframe = df
+column = 'BMI'
+bins=30
+title = 'Body Mass Index histogram'
+plot_histogram_with_density(df, column, bins, title)
+```
+
+```{python}
+#| fig-cap: BMI boxplot
+dataframe = df
+column = 'Age'
+title = 'Body Mass Index boxplot'
+plot_boxplot(df, column, title)
+```
+
+```{python}
+#| fig-cap: Histogram of Physical Activity
+dataframe = df
+column = 'PhysicalActivity'
+bins=30
+title = 'Physical Activity histogram'
+plot_histogram_with_density(df, column, bins, title)
+```
+
+```{python}
+#| fig-cap: Physical Activity boxplot
+dataframe = df
+column = 'PhysicalActivity'
+title = 'Physical Activity boxplot'
+plot_boxplot(df, column, title)
+```
+
+```{python}
+#| fig-cap: Histogram of AlcoholIntake
+dataframe = df
+column = 'AlcoholIntake'
+bins=30
+title = 'Number of alcohol units consumed per week histogram'
+plot_histogram_with_density(df, column, bins, title)
+```
+
+```{python}
+#| fig-cap: Age boxplot
+dataframe = df
+column = 'AlcoholIntake'
+title = 'Number of alcohol units consumed per week boxplot'
+plot_boxplot(df, column, title)
+```
