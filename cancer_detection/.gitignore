@@ -28,6 +28,11 @@ bin/
 *.cfg
 *.csv
 cancer_detection/
+_freeze/
+_manuscript/
+*png
+*.Rproj
+*.Rhistory
 
 # R
 

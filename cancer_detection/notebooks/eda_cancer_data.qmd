@@ -5,6 +5,8 @@ format:
         toc: true
         numberSections: true
         toc-depth: 4
+        code-overflow: wrap
+code-overflow: wrap
 ---
 
 ## Libraries
@@ -50,6 +52,10 @@ df.isnull().sum() / len(df) * 100
 ```
 
 ```{python}
+#| label: Visualization of NAs in dataset
+#| fig-cap: Visualization of NAs in dataset
+#| fig-size: 10
+#| fig-dpi: 300
 sns.heatmap(df.isna());
 plt.title('Visualization of NAs in dataset')
 ```
@@ -102,7 +108,7 @@ plot_binary_column(dataframe, column, title, category1_name, category2_name)
 ```
 
 ### Category data distribution visualization
-```{python}
+<!-- ```{python}
 #| fig-cap: Distribution of genetic risk
 # Map numeric values to labels
 df['GeneticRisk'] = df['GeneticRisk'].map({0: 'Low', 1: 'Medium', 2: 'High'})
@@ -124,7 +130,7 @@ plt.ylabel('Frequency')
 
 # Show the plot
 plt.show()
-```
+``` -->
 
 ### Continuous data distribution visualization
 ```{python}
