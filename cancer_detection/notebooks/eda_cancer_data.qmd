@@ -195,7 +195,7 @@ title = 'Number of alcohol units consumed per week boxplot'
 plot_boxplot(df, column, title)
 ```
 
-### Correlation heatmap with Diagnosis
+### Correlation heatmap
 ```{python}
 #| fig-cap: Correlation heatmap with Diagnosis
 plt.figure(figsize=(8, 10))
@@ -204,10 +204,40 @@ plt.title('Correlation with Diagnosis', fontsize=12)
 plt.show()
 ```
 
+### Binary and categorical data correlation heatmap
 
 ```{python}
-#| fig-cap: Correlation heatmap
+#| fig-cap: Correlation heatmap gender vs diagnosis
 dataframe = df
 column = 'Gender'
 plot_contingency_heatmap(dataframe, column)
+```
+
+```{python}
+#| fig-cap: Correlation heatmap smoking vs diagnosis
+dataframe = df
+column = 'Smoking'
+plot_contingency_heatmap(dataframe, column)
+```
+
+```{python}
+#| fig-cap: Correlation heatmap cancer history vs diagnosis
+dataframe = df
+column = 'CancerHistory'
+plot_contingency_heatmap(dataframe, column)
+```
+
+```{python}
+#| fig-cap: Correlation heatmap genetic risk vs diagnosis
+dataframe = df
+column = 'GeneticRisk'
+plot_contingency_heatmap(dataframe, column)
+```
+
+### Continuous data correlation heatmap
+
+```{python}
+#| fig-cap: Continuos data correlation heatmap
+sns.pairplot(df, vars=['Age', 'BMI', 'PhysicalActivity', 'AlcoholIntake'], hue='Diagnosis')
+plt.show()
 ```
