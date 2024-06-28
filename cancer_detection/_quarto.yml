@@ -5,8 +5,10 @@ manuscript:
   article: index.qmd
   
   notebooks:
-  - notebook: notebooks/eda_orders.qmd
-    title: EDA Orders
+  - notebook: notebooks/profile_cancer_data.qmd
+    title: Profile cancer data
+  - notebook: notebooks/eda_cancer_data.qmd
+    title: Exploratory data analisys
 
   code-links:
     - text: GitHub
@@ -19,9 +21,7 @@ format:
       hypothesis: true
   docx: default
   jats: default
-
-  # (other formats)
-  # pdf: default
+  pdf: default
 
 execute:
   freeze: auto
