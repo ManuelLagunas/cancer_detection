@@ -132,3 +132,5 @@ def plot_binary_column(df, column_name, title, category1_name, category2_name):
     plt.xticks(ticks=[0, 1], labels=[category1_name, category2_name])
     plt.legend(title=None)  # Optional: adjust or remove the legend
     plt.show()
+
+#  ---------- Continuos data visualization ----------

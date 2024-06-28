@@ -11,6 +11,7 @@ format:
 ```{python}
 import os
 import pandas as pd
+import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -77,4 +78,29 @@ title = 'Distibution of cancer history'
 category1_name = 'No cancer history'
 category2_name = 'Cancer history'
 plot_binary_column(dataframe, column, title, category1_name, category2_name)
+```
+
+### Category data distribution visualization
+```{python}
+#| fig-cap: Distribution of genetic risk
+# Map numeric values to labels
+df['GeneticRisk'] = df['GeneticRisk'].map({0: 'Low', 1: 'Medium', 2: 'High'})
+
+# Now, calculate 'value_counts' after mapping
+value_counts = df['GeneticRisk'].value_counts()
+
+# Generate unique colors for each value in 'GeneticRisk'
+colors = sns.color_palette("hsv", len(value_counts))
+
+# Create the bar plot assigning a color to each bar
+plt.figure(figsize=(10, 6))
+sns.barplot(x=value_counts.index, y=value_counts.values, palette='coolwarm')
+
+# Add title and labels
+plt.title('Distribution of Genetic Risk')
+plt.xlabel('Genetic Risk')
+plt.ylabel('Frequency')
+
+# Show the plot
+plt.show()
 ```
