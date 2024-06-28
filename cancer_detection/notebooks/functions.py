@@ -158,3 +158,25 @@ def plot_histogram_with_density(df, column, bins, title):
     
     # Show the plot
     plt.show()
+
+def plot_boxplot(df, column, title="Boxplot"):
+    """
+    Creates a boxplot for a specific column of a DataFrame.
+    
+    Parameters:
+    - df: Pandas DataFrame.
+    - column: Name of the column for which the boxplot will be created.
+    - title: Title of the plot.
+    """
+    # Set the size of the plot
+    plt.figure(figsize=(8, 6))
+    
+    # Create the boxplot
+    sns.boxplot(y=df[column])
+    
+    # Add title and labels
+    plt.title(title)
+    plt.ylabel(column)
+    
+    # Show the plot
+    plt.show()

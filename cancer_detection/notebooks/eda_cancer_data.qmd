@@ -15,7 +15,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from functions import load_last_csv_from_directory, classify_columns, plot_binary_column
+from functions import load_last_csv_from_directory, classify_columns, plot_binary_column, plot_histogram_with_density
 ```
 
 ## Loading data
@@ -104,3 +104,15 @@ plt.ylabel('Frequency')
 # Show the plot
 plt.show()
 ```
+
+### Continuous data distribution visualization
+```{python}
+#| fig-cap: Histogram of age
+dataframe = df
+column = 'Age'
+bins=30
+title = 'Age histogram'
+plot_histogram_with_density(df, column, bins, title)
+```
+
+```{python}
