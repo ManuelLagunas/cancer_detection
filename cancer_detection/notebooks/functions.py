@@ -134,3 +134,27 @@ def plot_binary_column(df, column_name, title, category1_name, category2_name):
     plt.show()
 
 #  ---------- Continuos data visualization ----------
+
+def plot_histogram_with_density(df, column, bins, title):
+    """
+    Plots a histogram with a density curve for a specific column of a DataFrame.
+    
+    Parameters:
+    - df: Pandas DataFrame.
+    - column: Name of the column for which the histogram and density curve will be plotted.
+    - bins: Number of bins for the histogram.
+    - title: Title of the plot.
+    """
+    # Set the size of the plot
+    plt.figure(figsize=(10, 6))
+    
+    # Plot the histogram with the density curve
+    sns.histplot(df[column], bins=bins, kde=True, color='skyblue')
+    
+    # Add title and labels
+    plt.title(title)
+    plt.xlabel(column)
+    plt.ylabel('Frequency')
+    
+    # Show the plot
+    plt.show()
