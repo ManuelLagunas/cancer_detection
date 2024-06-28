@@ -180,3 +180,17 @@ def plot_boxplot(df, column, title):
     
     # Show the plot
     plt.show()
+
+#  ---------- Categorical data visualization ----------
+
+def plot_contingency_heatmap(df, column_name):
+    # Create the contingency table
+    contingency_table = pd.crosstab(df[column_name], df['Diagnosis'])
+    
+    # Plot the contingency table as a heatmap
+    plt.figure(figsize=(10, 8))  # Adjust size as needed
+    sns.heatmap(contingency_table, annot=True, cmap='coolwarm', fmt='d')
+    plt.title(f'Distribution of {column_name} across Diagnosis')
+    plt.ylabel(column_name)
+    plt.xlabel('Diagnosis')
+    plt.show()

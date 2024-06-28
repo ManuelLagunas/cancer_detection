@@ -15,7 +15,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from functions import load_last_csv_from_directory, classify_columns, plot_binary_column, plot_histogram_with_density, plot_boxplot
+from functions import load_last_csv_from_directory, classify_columns, plot_binary_column, plot_histogram_with_density, plot_boxplot, plot_contingency_heatmap
 ```
 
 ## Loading data
@@ -27,15 +27,31 @@ df = load_last_csv_from_directory('datasets')
 
 ## EDA
 
-### Head
+### Info
 
 ```{python}
 df.head()
 ```
 
-### Info
 ```{python}
 df.describe().T
+```
+
+```{python}
+df.info()
+```
+
+```{python}
+df.isnull().sum()
+```
+
+```{python}
+df.isnull().sum() / len(df) * 100
+```
+
+```{python}
+sns.heatmap(df.isna());
+plt.title('Visualization of NAs in dataset')
 ```
 
 ### Columns clasification
@@ -186,4 +202,12 @@ plt.figure(figsize=(8, 10))
 sns.heatmap(df.corr()[['Diagnosis']].sort_values(by='Diagnosis', ascending=False), annot=True, cmap='Reds', vmin=-1, vmax=1)
 plt.title('Correlation with Diagnosis', fontsize=12)
 plt.show()
+```
+
+
+```{python}
+#| fig-cap: Correlation heatmap
+dataframe = df
+column = 'Gender'
+plot_contingency_heatmap(dataframe, column)
 ```
