@@ -181,6 +181,29 @@ def plot_boxplot(df, column, title):
     # Show the plot
     plt.show()
 
+def continus_vs_diagnosis_boxplot(df, column, vs_column, title):
+    """
+    Creates a boxplot that compares a continuous column with another column.
+    
+    Parameters:
+    - df: Pandas DataFrame.
+    - column: Name of the column for which the boxplot will be created.
+    - vs_column: Name of the column to compare with.
+    - title: Title of the plot.
+    """
+    # Set the size of the plot
+    plt.figure(figsize=(8, 6))
+    
+    # Create the boxplot
+    sns.boxplot(data=df, x=vs_column, y=column, palette='coolwarm')
+    plt.tight_layout()
+    
+    # Add title and labels
+    plt.title(title)
+    
+    # Show the plot
+    plt.show()
+
 #  ---------- Categorical data visualization ----------
 
 def plot_contingency_heatmap(df, column_name):
