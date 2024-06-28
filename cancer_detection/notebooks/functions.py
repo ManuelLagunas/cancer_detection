@@ -198,6 +198,9 @@ def continus_vs_diagnosis_boxplot(df, column, vs_column, title):
     sns.boxplot(data=df, x=vs_column, y=column, palette='coolwarm')
     plt.tight_layout()
     
+    # Customize x-axis labels
+    plt.xticks([0, 1], ['No Cancer', 'Cancer'])
+
     # Add title and labels
     plt.title(title)
     

@@ -15,7 +15,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from functions import load_last_csv_from_directory, classify_columns, plot_binary_column, plot_histogram_with_density, plot_boxplot, plot_contingency_heatmap
+from functions import load_last_csv_from_directory, classify_columns, plot_binary_column, plot_histogram_with_density, plot_boxplot, plot_contingency_heatmap, continus_vs_diagnosis_boxplot
 ```
 
 ## Loading data
@@ -240,4 +240,42 @@ plot_contingency_heatmap(dataframe, column)
 #| fig-cap: Continuos data correlation heatmap
 sns.pairplot(df, vars=['Age', 'BMI', 'PhysicalActivity', 'AlcoholIntake'], hue='Diagnosis')
 plt.show()
+```
+
+### Box Plots for Continuous Features by Diagnosis
+
+```{python}
+#| fig-cap: Box Plots for Age by Diagnosis
+dataframe = df
+column = 'Age'
+vs_column = 'Diagnosis'
+title = 'Box Plots for Age by Diagnosis'
+continus_vs_diagnosis_boxplot(dataframe, column, vs_column, title)
+```
+
+```{python}
+#| fig-cap: Box Plots for BMI by Diagnosis
+dataframe = df
+column = 'BMI'
+vs_column = 'Diagnosis'
+title = 'Box Plots for BMI by Diagnosis'
+continus_vs_diagnosis_boxplot(dataframe, column, vs_column, title)
+```
+
+```{python}
+#| fig-cap: Box Plots for Physical Activity  by Diagnosis
+dataframe = df
+column = 'PhysicalActivity'
+vs_column = 'Diagnosis'
+title = 'Box Plots for Physical Activity by Diagnosis'
+continus_vs_diagnosis_boxplot(dataframe, column, vs_column, title)
+```
+
+```{python}
+#| fig-cap: Box Plots for number of alcohol units consumed per week by Diagnosis
+dataframe = df
+column = 'AlcoholIntake'
+vs_column = 'Diagnosis'
+title = 'Box Plots for number of alcohol units consumed per week by Diagnosis'
+continus_vs_diagnosis_boxplot(dataframe, column, vs_column, title)
 ```
